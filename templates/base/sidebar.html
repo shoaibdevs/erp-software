@@ -1,0 +1,105 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/panel"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+           
+            <!-- Student Section START -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Student</a>
+             <ul class="nav-dropdown-items">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'student_register' %}">
+                         <i class="fa fa-plus-circle"></i>Student Registration</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'student_show' %}">
+                         <i class="fa fa-list"></i>Student List</a>
+                 </li>
+                 
+             </ul>
+           </li>
+           <!-- Student Section END -->
+
+           <!-- Enroll Student Section START -->
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Exam</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'exam' %}">
+                        <i class="fa fa-plus-circle"></i>Add Exam</a>
+                    <a class="nav-link" href="{% url 'list' %}">
+                        <i class="fa fa-list"></i>List Exam</a>
+                     
+                </li>
+            </ul>
+          </li>
+
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Exam Result</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'exam_result' %}">
+                        <i class="fa fa-plus-circle"></i>Add Result</a>
+                    <a class="nav-link" href="{% url 'exam_result_list' %}">
+                        <i class="fa fa-list"></i>List Result</a>
+                     
+                </li>
+            </ul>
+          </li>
+          
+
+
+
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Courses</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'course_create' %}">
+                        <i class="fa fa-plus-circle"></i>Add Course</a>
+                    <a class="nav-link" href="{% url 'course_list' %}">
+                        <i class="fa fa-list"></i>List Course</a>
+                     
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Subject</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'coursesubject_create' %}">
+                        <i class="fa fa-plus-circle"></i>Add Subject</a>
+                    <a class="nav-link" href="{% url 'coursesubject_list' %}">
+                        <i class="fa fa-list"></i>List Subject</a>
+                     
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Academic Year</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'session_create' %}">
+                        <i class="fa fa-plus-circle"></i>Add Academic Year</a>
+                    <a class="nav-link" href="{% url 'session_list' %}">
+                        <i class="fa fa-list"></i>List Academic Year</a>
+                     
+                </li>
+            </ul>
+          </li>
+
+      
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

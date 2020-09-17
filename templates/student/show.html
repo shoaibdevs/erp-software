@@ -1,0 +1,155 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+<head>
+
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+</head>
+	 <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+	<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">User Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Father Name</th>
+                    <th>Mother Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Course</th>
+                    <th>Academic Year</th>
+                    <!-- <th>Subject</th> -->
+                    <th>Previous School</th>
+                    <th>Previous Class</th>
+
+                    
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  	{% if data %}
+                  		{% for student in data %}
+                  			 
+  						
+								<tr>
+  								<td>{{ student.id }}</td>
+                                  <td>{{ student.user }}</td>
+                                  <td>{{ student.father_name }}</td>
+                                  <td>{{ student.mother_name }}</td>
+                                  <td>{{ student.DOB }}</td>
+                                  <td>{{ student.gender }}</td>
+                                  <td>{{ student.course }}</td>
+                                  <td>{{ student.academic_year }}</td>
+                                  <!-- <td>{{ student.Subject }}</td> -->
+                                  <td>{{ student.previous_school_name }}</td>
+                                  <td>{{ student.previous_class }}</td>
+
+                                  
+
+  								<td class="td-actions text-left">
+                   
+                      <a href="/panel/student/update/{{ student.id }}/" > 
+                          <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-edit"></i></button>
+                      </a>
+                      <a href="/panel/student/delete/{{ student.id }}">
+                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash"></i></button>
+                      </a>
+                   </td>     
+                </tr>
+                
+                {% endfor %}
+                {% endif %}
+                  
+
+
+		               
+               
+
+
+                 
+
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Father Name</th>
+                    <th>Mother Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Course</th>
+                    <th>Academic Year</th>
+                    <!-- <th>Subject</th> -->
+                    <th>Previous School</th>
+                    <th>Previous Class</th>
+
+                    
+                    <th>Actions</th>
+                  </tr>
+                  </tfoot>
+                </table> 
+                 
+                 </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+
+    </section>
+    <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+
+
+{% endblock %}
+{% block script%}
+
+<script src="{% static 'admin/plugins/datatables/jquery.dataTables.min.js'%}"></script>
+<script src="{% static 'admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'%}"></script>
+<script src="{% static 'admin/plugins/datatables-responsive/js/dataTables.responsive.min.js'%}"></script>
+<script src="{% static 'admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'%}"></script>
+<!-- AdminLTE App -->
+
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'admin/dist/js/demo.js' %}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+{% endblock %}
+                                

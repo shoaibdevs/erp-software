@@ -1,0 +1,153 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{% static 'admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'%}">
+  <link rel="stylesheet" href="{% static 'admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'%}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'admin/dist/css/adminlte.min.css'%}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block content %}
+	 <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- <section class="content-header">
+      <!-- <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1></h1>
+          </div>
+    
+        </div> -->
+      </div><!-- /.container-fluid -->
+    <!-- </section>  -->
+	<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Class Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+ 
+                    <th>Name</th>
+       
+                    
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  	{% if data %}
+                  		{% for list in data %}
+                  			 
+  						
+								<tr>
+  								  <td>{{ list.id }}</td>
+                  
+                    <td>{{ list.name }}</td>
+      
+                     
+                                  
+
+
+  								<td class="td-actions text-left">
+                      <a href="/panel/class/update/{{ list.id }}/" > 
+                          <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-edit"></i></button>
+                      </a>
+                      <a href="/panel/class/delete/{{ list.id }}/">
+                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash"></i></button>
+                      </a>
+                   </td>     
+                </tr>
+                
+                {% endfor %}
+                {% else %}
+                <div class="card-group">
+                    No data Found in table
+                </div>
+                {% endif %} 
+                  
+
+
+		               
+               
+
+
+                 
+
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Id</th>
+ 
+                    <th>Name</th>
+         
+         
+                    
+                    <th>Actions</th>
+                  </tr>
+                  </tfoot>
+                </table> 
+                 
+                 </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+
+    </section>
+    <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  
+
+
+{% endblock %}
+{% block script%}
+
+<script src="{% static 'admin/plugins/datatables/jquery.dataTables.min.js'%}"></script>
+<script src="{% static 'admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'%}"></script>
+<script src="{% static 'admin/plugins/datatables-responsive/js/dataTables.responsive.min.js'%}"></script>
+<script src="{% static 'admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'%}"></script>
+<!-- AdminLTE App -->
+
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'admin/dist/js/demo.js' %}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+{% endblock %}
+                                
